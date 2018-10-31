@@ -14,6 +14,7 @@ as well as the beauty of its architecture.
 # APIs
 - MapBox
 - Youtube
+- Wikipedia (See geography and location summary section: https://en.wikipedia.org/wiki/Chinatown,_San_Francisco)
 - SFdata.org *
 - Google APIs *
 
