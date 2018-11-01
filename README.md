@@ -1,8 +1,6 @@
-# Nick's Project Description: Walking Tours in San Francisco
+# Walking Tours in San Francisco
 Our client San Francisco city guides is requesting a site redesign of their page: http://www.sfcityguides.org/descriptions_table.html
-They would like to see a single page responsive website that outlines the neighborhoods of San Francisco, offers a single resource to inspire 
-residents and tourists, that provides starting points for walks to improvise from that highlight historical themes about San Francisco and show
-the diversity of ethnicities, neighborhoods, as well as the beauty of the victorian architecture.
+They would like to see a single page responsive website that outlines the neighborhoods of San Francisco, offers a single resource to inspire residents and tourists, that provides starting points for walks to improvise from that highlight historical themes about San Francisco and show the diversity of settlers, neighborhoods, as well as the beauty of the victorian architecture.
 
 # Technologies
 - HTML5
@@ -19,14 +17,14 @@ the diversity of ethnicities, neighborhoods, as well as the beauty of the victor
 - SFdata.org *
 - Google APIs *
 
-# Team Members (Chareen, Maha, Nick) and Tasks
+# Team Members and Tasks
 - HTML Layout, SCSS styling using Bootstrap-SASS, and mobile responsive layout
 - Creating an HTML form with form validation
 - Making a canvas of mapbox and a map overlay of SF neighborhoods, dropping pins, display routes
 - Consuming Youtube API and tiling walking tours
 - API key administration
 
-# Coding Requirements\
+# Coding Requirements
 - Must use at least two APIs (must be client-side and allow CORS)
 - Must use AJAX to pull data
 - Must utilize a new library or technology that we haven't discussed
