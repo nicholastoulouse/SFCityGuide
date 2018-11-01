@@ -12,6 +12,45 @@
     <link rel="stylesheet" href="./assets/css/normalize.css"><link rel="stylesheet" href="./assets/css/styles.css">
     <script src="./assets/js/config.js"></script>
     <title>Project 1 Team: Huiling, Maha, Nick</title>
+    
+    <!-- temporary -->
+    <style> 
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        #map {
+            width: 100%;
+            max-height: 700px;
+        }
+        main {
+            float: left;
+            width: 70%;
+        }
+        aside {
+            width: 25%;
+            padding: 15px;
+            margin-left: 10px;
+            float: right;
+            background-color: lightblue;
+        }
+        .clearfix {
+            clear: both;
+            overflow: auto;
+        }
+        aside {
+            text-align:left;
+            vertical-align: top;
+            vh: 100%;
+        }
+        header {
+            border: 1px solid black;
+            margin-bottom: 20px;
+        }
+        .repeats {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,10 +58,12 @@
     <header>
         <h1>Welcome to Project 1</h1>
     </header>
-    <main>
+    <!-- Bootstap docs: https://getbootstrap.com/docs/4.1/layout/overview/ -->
+    <main> 
+        <!-- HEY, FORM OPTIONS TO BE REDUCED OR HIGHLIGHTED ACCORDING TO CITY GUIDES TOURS LIST: http://www.sfcityguides.org/descriptions_table.html -->
         <form role="chooseTour">
             <fieldset>
-            <label for="neighborhoods">Choose a neighborhood walk: </label><select id="neighborhoods">
+            <label for="neighborhoods"><em>Choose a neighborhood walk:&nbsp;</em></label>&nbsp;<select id="neighborhoods">
                 <option value="">--Please choose an option--</option>
                 <option value="">Alamo Square</option>
                 <option value="">Anza Vista</option>
@@ -150,17 +191,37 @@
                 <option value="">Westwood Highlands</option>
                 <option value="">Westwood Park</option>
                 <option value="">Yerba Buena</option>
-            </select><button type="submit">for a walk</button>
+            </select>&nbsp;&nbsp;<button type="submit">for a walk</button>
         </fieldset>
         </form>
+        <section>
+            <article>The Bayview stretches along Third Street south of Evans Avenue, west of the Hunters Point neighborhood. The neighborhood library was recently renamed the Linda Brooks-Burton Branch Library after a new and larger building was constructed at the same location on Third Street and Revere. Within a block or two of the library are three urban gardens and public art projects, developed entirely by residents, known as the Quesada Gardens Initiative (the Quesada Garden, Bridgeview Garden, and Latona Garden). The Bayview is known for its friendly and diverse residents, warm weather and inviting vistas, community gardens, independent businesses, artists' community, and rich history as an African American and working-class neighborhood. During the 1950s it was largely a Maltese and Italian neighborhood, centered on St. Paul of the Shipwreck Church and the Maltese American Social Club, both on Oakdale Ave. The area is served by the T-Third light rail line, and is home to the Bayview Opera House and City College Evans and Southeast Campus. The area is undergoing rapid development as the City tries to meet the demands of population growth and corporate investors have revalued the relatively large amount of buildable land. Hunters Point Shipyard and Candlestick Park areas are primary centers of development in the neighborhood. Despite its diversity, residents have a long history of coming together to create change and protect neighborhood assets. Bayview Footprints Network is telling a positive story about an often maligned place and maintains the neighborhood' longest-running blog, and the Bay View Newspaper is a respected voice for the underserved. Hunters Point Shipyard, a former Super-Fund site, and a polluting power plant have been focal points for environmental activists. Elders remember when, during the civil rights era, the neighborhood was one of the most highly organized, led by social justice advocates such as Julia Commer, Osceola Washington, Ruth Williams, Rosie Williams and Eloise Westbrook, Essie Webb, Espanola Jackson, Shirley Jones, Alex Pitcher, and many others. Sam Jordan, boxing champion and tavern owner, was the first African American to run for Mayor of San Francisco.</article>
+        </section>
+        <br/>
+        <img src="assets/images/sfmap.png" id="map">
+        <canvas id="mapbox">
+                <!-- Map inspiration: http://www.sfcityguides.org/files/map.pdf -->
+                <!-- Sample code: See code pen I found: https://codepen.io/shortdiv/pen/XeXdej?editors=0010 -->
+        </canvas>
     </main>
     <aside>
-
+        <!-- Youtube videos inspiration:  https://repl.it/repls/InexperiencedExternalContent -->
+        <!-- Maybe make this scrollable like Koi Vinh's left-side menu on his blog: https://www.subtraction.com/ -->
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
+        <div class="repeats"><img src="http://lorempixel.com/300/185" class="videohere"/><caption>Video caption</caption></div><br/>
     </aside>
-    <canvas id="mapbox">
 
-    </canvas>
-    <footer><div class="footer__box"></div></footer>
+    <br class="clearfix" />
+
+    <footer><div class="footer__box">Team: Maha, Chareen, Nick</div></footer>
 </div>
 
 <!-- ES6 JAVASCRIPTS BELOW-->
@@ -170,6 +231,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <!-- MAIN JAVASCRIPT PROGRAMS -->
-<script>$(document).ready(function(){ alert("Sorry for breaking the rules, but WELCOME Huiling, Maha, and Nick to our project site!"); });</script>
+<script>$(document).ready(function(){ alert("Hey there! Requirements aside, WELCOME Huiling, Maha, and Nick to our project site!"); });</script>
 </body>
 </html>

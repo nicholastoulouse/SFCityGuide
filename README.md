@@ -1,7 +1,8 @@
 # Nick's Project Description: Walking Tours in San Francisco
-A single page responsive website that outlines the neighborhoods of San Francisco, offers a single resource to inspire residents and tourists, 
-and provides starting points for walks to improvise from that highlight historical themes about San Francisco and show the diversity of ethnicities 
-as well as the beauty of its architecture.
+Our client San Francisco city guides is requesting a site redesign of their page: http://www.sfcityguides.org/descriptions_table.html
+They would like to see a single page responsive website that outlines the neighborhoods of San Francisco, offers a single resource to inspire 
+residents and tourists, that provides starting points for walks to improvise from that highlight historical themes about San Francisco and show
+the diversity of ethnicities, neighborhoods, as well as the beauty of the victorian architecture.
 
 # Technologies
 - HTML5
