@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- register a new walk -->
+    <form name="schedulewalk">
+        <label for="choosetour">To schedule a new walk, first select the tour:</label>
+        <select id="choosetour">
+            <option>Choose a tour</option>
+        </select>
+        <input type="text" value="Enter ">
+    </form>
+    <script>
+        var guide = {
+            name: "",
+            email: "",
+            mobile: "",
+            bio: "",
+            picURL: ""
+        };
+
+        var walk = {
+            date: "",
+            time: "",
+            timezone: "America/Los_Angeles",
+            notes: "",
+            tourguide: "Pavan Katepalli",
+            registered: 1,
+            attendees: [
+            {
+                name: "",
+                email: "",
+                mobile: "",
+                paid: false
+            }
+            ]
+        };
+    </script>
+</body>
+</html>

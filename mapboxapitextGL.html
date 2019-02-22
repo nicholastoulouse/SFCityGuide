@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mapbox test</title>
+    <!-- <script src="./assets/js/jquery-3.3.1.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <meta charset='utf-8' />
+    <title>MapBox API test</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map_geo { position:absolute; top:0; bottom:0; width:100%; }
+        #map { height: 600px; width: 900px; margin: 0 auto; }
+        #geocoder-container > div { min-width:50%; margin-left:25%; }
+        .mapboxgl-ctrl-geocoder { display: none; }
+    </style>
+</head>
+<body>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.0/mapbox-gl-geocoder.css' type='text/css' />
+    <style>
+    #geocoder-container > div {
+    min-width:50%;
+    margin-left:25%;
+    }
+    </style>
+    <!-- HTML STARTS HERE -->
+    <h1>mapbox api test</h1>
+    <div id='map' class='map' width="600px" height="400px"> </div>
+
+    <script>
+        var getGeoCoords = function(address){
+            var coords;
+            var startingPlace = address; // validate address to street city postal_code country (defaults to USA)	E.g. 1600 Pennsylvania Ave NW Washington DC 20500
+            startingPlace = startingPlace.trim().split(" ").map(word => word[0].toUpperCase() + word.substring(1).toLowerCase()).join("+");
+            console.log(startingPlace);
+            var geocodApiKey = "cc137535c55a1c09bcbbbbc5eb7733751005553";
+            var geocodurl = "https://api.geocod.io/v1.3/geocode?street=" + startingPlace + "&city=San+Francisco&state=CA&api_key=" + geocodApiKey;
+            // Example: https://api.geocod.io/v1.3/geocode?street=1109+N+Highland+St&city=Arlington&state=VA&api_key=YOUR_API_KEY
+            //console.log(geocodurl);
+            $.ajax({
+                url: geocodurl,
+                method: "GET"
+            }).then(function(response){
+
+                coords = [response.results[0].location.lng, response.results[0].location.lat];
+                // MAPBOX CODE
+                var apikey = 'pk.eyJ1Ijoibmljb3RvMTY5IiwiYSI6ImNqcm53Y3JiYTBiNzc0OGs1ZXR0bmY5ajAifQ.DhLyPa9px0-AdhbsuOFObQ'; // 'pk.eyJ1Ijoibmljb3RvMTY5IiwiYSI6ImNqcm53Y3JiYTBiNzc0OGs1ZXR0bmY5ajAifQ.DhLyPa9px0-AdhbsuOFObQ';
+                mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb3RvMTY5IiwiYSI6ImNqcm53Y3JiYTBiNzc0OGs1ZXR0bmY5ajAifQ.DhLyPa9px0-AdhbsuOFObQ';
+                console.log("window coordinates ", coords);
+                var map = new mapboxgl.Map({
+                    container: 'map', // container id
+                    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+                    center: coords, // starting position [lng, lat]
+                    zoom: 14
+                });
+                var geocoder = new MapboxGeocoder({
+                    accessToken: mapboxgl.accessToken
+                });
+                
+                map.addControl(geocoder);
+
+                // After the map style has loaded on the page, add a source layer and default
+                // styling for a single point.
+                map.on('load', function() {
+                    map.addSource('single-point', {
+                        "type": "geojson",
+                        "data": {
+                        "type": "Point",
+                        "coordinates": coords
+                        }
+                    });
+                    
+                    map.addLayer({
+                        "id": "point",
+                        "source": "single-point",
+                        "type": "circle",
+                        "paint": {
+                        "circle-radius": 10,
+                        "circle-color": "red"
+                        }
+                    });
+                });
+            });
+        };  
+        var coordinates = getGeoCoords("Geary and Leavenworth");
+</script>
+</body>
+</html>
+
+
+
+<!-- <script>
+var geojson = [
+  {
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      coordinates: [-77.031952, 38.913184]
+    }
+  }
+];
+
+var mapGeo = L.mapbox.map('map_geo', 'mapbox.light')
+  .setView([37.8, -96], 4);
+
+var myLayer = L.mapbox.featureLayer().setGeoJSON(geojson).addTo(mapGeo);
+mapGeo.scrollWheelZoom.disable();
+</script> -->

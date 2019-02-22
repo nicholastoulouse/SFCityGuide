@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+    <title>SF Walking Tours</title>
+</head>
+<body>
+    <main id="media">
+        <h1>Walk preview</h1>
+        <div class="thumbnails">
+        </div>
+
+        <form role="chooseTour">
+                <fieldset>
+                <label for="neighborhoods"><h3>Preview Walks:&nbsp;</h3></label><br/>
+                <select id="neighborhoods">
+                    <option value="">--Please choose a neighborhood--</option>     
+                </select>
+                </fieldset>
+        </form>
+
+        <div class="videoWrapper">
+            <iframe id="youtube" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <!-- walks > registered / attendees -->
+    <script type="text/javascript" src="./assets/js/backend.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            // Make a neighborhoods selection dropdown (dynamically)
+            for(var i=0; i < neighborhoods_SF.length; i++){
+                var $op = $('<option>').attr("value", neighborhoods_SF[i]).text(neighborhoods_SF[i]);
+                $('#neighborhoods').append($op);
+            }
+
+            $("#neighborhoods").change(function(){
+                var nghbrhd = $(this).find('option:selected').attr('value');
+                loadStills(nghbrhd, "San Francisco");
+            });
+        });
+    </script>
+
+</body>
+</html>

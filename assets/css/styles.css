@@ -11,14 +11,116 @@ https://sass-lang.com/documentation/file.SASS_REFERENCE.html
 
 */
 
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+#map {
+    width: 100%;
+    max-height: 700px;
+}
+aside {
+    width: 25%;
+    padding: 15px;
+    margin-left: 10px;
+    float: right;
+    background-color: lightblue;
+}
+.clearfix {
+    clear: both;
+    overflow: auto;
+}
+aside {
+    text-align:left;
+    vertical-align: top;
+    vh: 100%;
+}
+header {
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+.repeats {
+    display: block;
+}
+.video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+}
+.video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+#videos-list img { /* put titles on a separate line from thumbnails*/
+    display: block;
+}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    /* width: 480px;
+    height: 270px; */
+	/* height: 0; */
+    /* width: 420px;
+    height: 315px; */
+}
+#youtube {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.thumbnails > img {
+    padding: .5%;
+    width: 31%;
+    height: auto;
+}
+
 /* Small devices (landscape phones, 576px and up), No media query for `xs` (portrait phones, less than 576px) since this is the default in Bootstrap*/
-@media (min-width: 576px) { ... }
+@media (min-width: 576px) { 
+    background-color: lightgrey;
+}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { ... }
+@media (min-width: 768px) {
+    background-color: lightskyblue;
+}
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { ... }
+@media (min-width: 992px) {
+    #video-embed {
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    background-color: beige;
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) {
+    #video-embed {
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    background-color: lightcyan;
+}
+
+@media screen and (max-width: 991px) {
+    /* start of large tablet styles */    
+}
+
+/* mobile styles */
+@media screen and (max-width: 767px) {
+    /* start of medium tablet styles */
+}
+    
+@media screen and (max-width: 479px) {
+/* start of phone styles */
+}

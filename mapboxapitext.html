@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mapbox test</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <!-- <script src="./assets/js/jquery-3.3.1.js"></script> -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+    <h1>mapbox api test</h1>
+    <div id='map'></div>
+</body>
+<script>
+$(document).ready(function(){
+    console.log("test here");
+
+    // var movie = $(this).text();
+	// 	// var qurl = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+        var apikey = 'pk.eyJ1Ijoibmljb3RvMTY5IiwiYSI6ImNqcm53Y3JiYTBiNzc0OGs1ZXR0bmY5ajAifQ.DhLyPa9px0-AdhbsuOFObQ'; // "pk.eyJ1Ijoibmljb3RvMTY5IiwiYSI6ImNqcm53YnFubTB3eHI0M3A5NXNwcmRpdm8ifQ._TlMEiQeWS0IAy5ktFX4Ow"
+    //     var username = "{nicoto169}";
+    //     var qurl = "https://api.mapbox.com/styles/v1/" + "?access_token=" + username + apikey;
+        
+        L.mapbox.accessToken = apikey;
+
+        var map = L.mapbox.map('map', 'mapbox.streets').setView([37.736670, -122.453820], 14);
+        var layer = L.mapbox.tileLayer('mapbox.streets');
+        layer.on('ready', function() {
+            console.log("map is ready");
+        // the layer has been fully loaded now, and you can
+        // call .getTileJSON and investigate its properties
+        });
+
+
+
+		// $.ajax({
+		// 	url: qurl,
+		// 	method: 'GET'
+		// }).then(function(data){
+		// 	console.log(data);
+		// });
+});
+</script>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>Display a map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+ 
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoibmljb3RvMTY5IiwiYSI6ImNqcm53Y3JiYTBiNzc0OGs1ZXR0bmY5ajAifQ.DhLyPa9px0-AdhbsuOFObQ';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+center: [-74.50, 40], // starting position [lng, lat]
+zoom: 9 // starting zoom
+});
+</script>
